@@ -5,7 +5,19 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
         <li><%= link_to "Contato", contact_path %></li>
-        <li><%= link_to "Login", '#' %></li>
+        <% if user_signed_in? %>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">	<%= current_user.email %> <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><%= link_to "Preferências", edit_user_registration_path %></li>
+					<li class="divider"></li>
+					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+				</ul>
+			</li>
+		<% else %>
+			<li><%= link_to "Registrar", new_user_registration_path, :class => 'navbar-link'  %></li>
+			<li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+		<% end %>
       </ul>
     </nav>
   </div>
