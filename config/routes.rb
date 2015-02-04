@@ -1,7 +1,22 @@
 Rails.application.routes.draw do
+  namespace :admin do
+  get 'cities/index'
+  end
+
+  namespace :admin do
+  get 'cities/new'
+  end
+
+  namespace :admin do
+  get 'cities/create'
+  end
+
   devise_for :users
   root 'static_pages#home'
   get 'contact' => 'static_pages#contact'
+  namespace :admin do
+    resources :cities
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
