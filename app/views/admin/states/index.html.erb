@@ -1,0 +1,21 @@
+<h1>Estados</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @states.each do |admin_state| %>
+      <tr>
+        <td><%= admin_state.name %></td>
+        <td><%= link_to image_tag("page_go.png", alt: "Cidades"), admin_state_cities_path(admin_state) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -1,9 +1,9 @@
 class Admin::CitiesController < Admin::ApplicationController
   before_action :find_city, only: [:show, :edit, :update, :destroy]
-  before_action :find_states, only: [:new, :edit]
+  before_action :find_state, only: [:index, :new, :edit]
   
   def index
-    @cities = City.order(:state_id,:name).paginate(page: params[:page])
+    @cities = City.where(state_id: params[:state_id]).order(:name)
   end
 
   def show
@@ -17,7 +17,7 @@ class Admin::CitiesController < Admin::ApplicationController
     @city = City.new(city_params)
     if @city.save
       flash[:info] = "City created"
-      redirect_to admin_cities_url
+      redirect_to admin_state_cities_url
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class Admin::CitiesController < Admin::ApplicationController
   def update
     if @city.update_attributes(city_params)
       flash[:success] = "City updated"
-      redirect_to admin_cities_url
+      redirect_to admin_state_cities_url
     else
       render 'edit'
     end
@@ -38,16 +38,16 @@ class Admin::CitiesController < Admin::ApplicationController
   def destroy
     @city.destroy
     flash[:success] = "City deleted"
-    redirect_to admin_cities_url
+    redirect_to admin_state_cities_url
   end
 
   private
     def find_city
       @city = City.find(params[:id])
     end
-
-    def find_states
-      @states = State.all
+    
+    def find_state
+      @state = State.find(params[:state_id])
     end
 
     def city_params
