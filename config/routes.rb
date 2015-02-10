@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+ 
   devise_for :users
   root 'static_pages#home'
   get 'contact' => 'static_pages#contact'
   namespace :admin do
     resources :states do
       resources :cities
+    end
+    resources :churches do
+      get :autocomplete_city_name, :on => :collection
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

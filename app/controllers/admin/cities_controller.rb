@@ -6,9 +6,6 @@ class Admin::CitiesController < Admin::ApplicationController
     @cities = City.where(state_id: params[:state_id]).order(:name)
   end
 
-  def show
-  end
-
   def new
     @city = City.new
   end

@@ -1,6 +1,6 @@
 <h1>Cidades do <%=@state.name%></h1>
-
-<table>
+<div class="table-responsive">
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
       <th>Nome</th>
@@ -18,7 +18,7 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to 'Nova Cidade', new_admin_state_city_path, class: "btn btn-lg btn-primary" %>

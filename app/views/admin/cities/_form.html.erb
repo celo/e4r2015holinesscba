@@ -3,9 +3,9 @@
     <%= simple_form_for [:admin,@state,@city] do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.input :name, class: 'form-control' %>
+      <%= f.input :name, label: "Nome", class: 'form-control' %>
 
-      <%= f.submit "Salvar alteração", class: "btn btn-primary" %>
+      <%= f.submit "Salvar", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

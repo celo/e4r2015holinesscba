@@ -1,0 +1,30 @@
+<h1>Igrejas</h1>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="table-responsive">
+			<table class="table table-condensed table-hover">
+			  <thead>
+			    <tr>
+			      <th>Nome</th>
+			      <th>Cidade</th>
+			      <th>Estado</th>
+			      <th colspan="2"></th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <% @churches.each do |admin_church| %>
+			      <tr>
+			        <td><%= admin_church.name %></td>
+			        <td><%= admin_church.city.name if !admin_church.city.nil? %></td>
+			        <td><%= admin_church.city.state.abbr if !admin_church.city.nil? %></td>
+			        <td><%= link_to image_tag("page_edit.png", alt: "Editar"), edit_admin_church_path(admin_church) %></td>
+			        <td><%= link_to image_tag("page_delete.png", alt: "Excluir"), admin_church_path(admin_church), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+		<%= link_to 'Nova Igreja', new_admin_church_path, class: "btn btn-lg btn-primary" %>
+	</div>
+</div>
