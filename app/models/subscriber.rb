@@ -14,9 +14,13 @@ class Subscriber < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
-  validates :church, presence: true
-  validates :payment_plan, presence: true
+  validates :church_id, presence: true
+  validates :payment_plan_id, presence: true
 
   attr_accessor :city_name
+
+  def city_name
+    "#{self.city.name} - #{self.city.state.abbr}"
+  end
 
 end

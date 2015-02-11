@@ -4,7 +4,7 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.input :name, label: "Nome", class: 'form-control' %>
-      <%= f.input :city_name, url: autocomplete_city_name_admin_churches_path, as: :autocomplete, id_element: '#church_city_id' , label: "Cidade", input_html: { value: @church.new_record? ? "" : @city_name }, class: 'form-control' %>
+      <%= f.input :city_name, url: autocomplete_city_name_admin_churches_path, as: :autocomplete, id_element: '#church_city_id' , label: "Cidade", class: 'form-control' %>
       <%= f.input :city_id, as: :hidden %>
 
       <%= f.submit "Salvar", class: "btn btn-primary" %>

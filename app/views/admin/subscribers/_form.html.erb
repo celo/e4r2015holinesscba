@@ -4,18 +4,18 @@
       <%= render 'shared/error_messages', object: f.object %>
 
 			<%= f.input :name, label: "Nome" %>
-			<%= f.input :birth_date, as: :string, label: "Data de Nascimento", input_html: { alt: "date"} %>
-			<%= f.input :gender, as: :radio_buttons, :collection => [['Masculino',1],['Feminino',0]], boolean_style: :inline, label: "Sexo" %>
+			<%= f.input :birth_date, as: :string, label: "Data de Nascimento", input_html: { alt: "date", value: @subscriber.new_record? ? "" : @subscriber.birth_date.strftime("%d/%m/%Y") } %>
+			<%= f.input :gender, as: :radio_buttons, collection: [['Masculino',true],['Feminino',false]], checked: @subscriber.new_record? ? "" : @subscriber.gender, label: "Sexo" %>
 			<%= f.input :address, label: "Endereço" %>
 			<%= f.input :neighborhood, label: "Bairro" %>
-      <%= f.input :city_name, url: autocomplete_city_name_admin_subscribers_path, as: :autocomplete, id_element: '#subscriber_city_id' , label: "Cidade", input_html: { value: @subscriber.new_record? ? "" : @city_name } %>
+      <%= f.input :city_name, url: autocomplete_city_name_admin_subscribers_path, as: :autocomplete, id_element: '#subscriber_city_id' , label: "Cidade" %>
       <%= f.input :city_id, as: :hidden %>
 			<%= f.input :cep, label: "CEP", input_html: { alt: "cep"} %>
 			<%= f.input :phone, as: :string, label: "Telefone", input_html: { alt: "phone" } %>
 			<%= f.input :cellphone, as: :string, label: "Celular", input_html: { alt: "phone" } %>
 			<%= f.input :email, label: "E-mail" %>
-			<%= f.input :church, collection: @churches, label: "Igreja" %>
-			<%= f.input :payment_plan, collection: @payment_plans, label: "Plano de Pagamento" %>
+			<%= f.input :church_id, collection: @churches, label: "Igreja" %>
+			<%= f.input :payment_plan_id, collection: @payment_plans, label: "Plano de Pagamento" %>
 			<%= f.input :notes, label: "Observações" %>
 
       <%= f.submit "Salvar", class: "btn btn-primary" %>

@@ -58,7 +58,7 @@ class Admin::SubscribersController < Admin::ApplicationController
     end
     
     def subscriber_params
-      params.require(:subscriber).permit(:name, :city_name, :birth_date, :gender, :address, :neighborhood, :city, :cep, :phone, :cellphone, :email, :church, :payment_plan, :notes)
+      params.require(:subscriber).permit(:name, :birth_date, :gender, :address, :neighborhood, :city_name, :city_id, :cep, :phone, :cellphone, :email, :church_id, :payment_plan_id, :notes)
     end
 
 end
