@@ -20,7 +20,7 @@ class Subscriber < ActiveRecord::Base
   attr_accessor :city_name
 
   def city_name
-    "#{self.city.name} - #{self.city.state.abbr}"
+    "#{self.city.name} - #{self.city.state.abbr}" if self.city_id?
   end
 
 end
