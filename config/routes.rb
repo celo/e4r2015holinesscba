@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :churches do
       get :autocomplete_city_name, :on => :collection
     end
+    resources :payment_plans
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

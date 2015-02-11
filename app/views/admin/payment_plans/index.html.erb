@@ -1,0 +1,28 @@
+<h1>Planos de Pagamento</h1>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="table-responsive">
+			<table class="table table-condensed table-hover">
+			  <thead>
+			    <tr>
+			      <th>Nome</th>
+			      <th>Info</th>
+			      <th colspan="2"></th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <% @payment_plans.each do |admin_payment_plan| %>
+			      <tr>
+			        <td><%= admin_payment_plan.name %></td>
+			        <td><%= simple_format(admin_payment_plan.info) %></td>
+			        <td><%= link_to image_tag("page_edit.png", alt: "Editar"), edit_admin_payment_plan_path(admin_payment_plan) %></td>
+			        <td><%= link_to image_tag("page_delete.png", alt: "Excluir"), admin_payment_plan_path(admin_payment_plan), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+		<%= link_to 'Novo Plano de Pagamento', new_admin_payment_plan_path, class: "btn btn-lg btn-primary" %>
+	</div>
+</div>
