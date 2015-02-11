@@ -20,6 +20,7 @@ gem 'sdoc',                 '0.4.0', group: :doc
 gem 'devise'
 gem 'simple_form'
 gem 'rails4-autocomplete'
+gem 'meiomask-rails'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

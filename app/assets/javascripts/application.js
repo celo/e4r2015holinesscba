@@ -12,8 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery-ui/autocomplete
 //= require bootstrap
 //= require turbolinks
 //= require autocomplete-rails
+//= require meiomask
 //= require_tree .
+
+
+// call setMask function on the document.ready event
+jQuery(function($) {
+  $('input[type="text"]').setMask();
+});

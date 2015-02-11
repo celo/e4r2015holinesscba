@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211161016) do
+ActiveRecord::Schema.define(version: 20150211164448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,28 @@ ActiveRecord::Schema.define(version: 20150211161016) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "subscribers", force: :cascade do |t|
+    t.string   "name"
+    t.date     "birth_date"
+    t.boolean  "gender"
+    t.string   "address"
+    t.string   "neighborhood"
+    t.integer  "city_id"
+    t.string   "cep"
+    t.string   "phone"
+    t.string   "cellphone"
+    t.string   "email"
+    t.integer  "church_id"
+    t.integer  "payment_plan_id"
+    t.text     "notes"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "subscribers", ["church_id"], name: "index_subscribers_on_church_id", using: :btree
+  add_index "subscribers", ["city_id"], name: "index_subscribers_on_city_id", using: :btree
+  add_index "subscribers", ["payment_plan_id"], name: "index_subscribers_on_payment_plan_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -68,4 +90,7 @@ ActiveRecord::Schema.define(version: 20150211161016) do
 
   add_foreign_key "churches", "cities"
   add_foreign_key "cities", "states"
+  add_foreign_key "subscribers", "churches"
+  add_foreign_key "subscribers", "cities"
+  add_foreign_key "subscribers", "payment_plans"
 end

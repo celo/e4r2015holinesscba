@@ -1,9 +1,5 @@
 class Admin::PaymentPlansController < Admin::ApplicationController
   before_action :find_payment_plan, only: [:edit, :update, :destroy]
-  #before_action :find_cities, only: [:new, :edit]
-  #before_action :find_states, only: [:new, :edit]
-
-  #autocomplete :city, :name, :extra_data => [:state_id], display_value: :city_state
 
   def index
     @payment_plans = PaymentPlan.all.order(:name)

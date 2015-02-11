@@ -1,0 +1,26 @@
+<h1>Inscrições</h1>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="table-responsive">
+			<table class="table table-condensed table-hover">
+			  <thead>
+			    <tr>
+			      <th>Nome</th>
+			      <th colspan="2"></th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <% @subscribers.each do |admin_subscriber| %>
+			      <tr>
+			        <td><%= admin_subscriber.name %></td>
+			        <td><%= link_to image_tag("page_edit.png", alt: "Editar"), edit_admin_subscriber_path(admin_subscriber) %></td>
+			        <td><%= link_to image_tag("page_delete.png", alt: "Excluir"), admin_subscriber_path(admin_subscriber), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+		<%= link_to 'Novo Plano de Pagamento', new_admin_subscriber_path, class: "btn btn-lg btn-primary" %>
+	</div>
+</div>
