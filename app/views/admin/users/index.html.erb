@@ -1,0 +1,24 @@
+<h1>Usuários</h1>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="table-responsive">
+			<table class="table table-condensed table-hover">
+			  <thead>
+			    <tr>
+			      <th>Email</th>
+			      <th></th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <% @users.each do |admin_user| %>
+			      <tr>
+			        <td><%= admin_user.email %></td>
+			        <td><%= link_to image_tag("page_delete.png", alt: "Excluir"), admin_user_path(admin_user), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
