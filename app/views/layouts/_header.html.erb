@@ -10,6 +10,11 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">	<%= current_user.email %> <b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><%= link_to "Preferências", edit_user_registration_path %></li>
+					<li><%= link_to "Estados/Cidades", admin_states_path %></li>
+					<li><%= link_to "Usuários", admin_users_path %></li>
+					<li><%= link_to "Igrejas", admin_churches_path %></li>
+					<li><%= link_to "Planos de Pagamento", admin_payment_plans_path %></li>
+					<li><%= link_to "Inscrições", admin_subscribers_path %></li>
 					<li class="divider"></li>
 					<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 				</ul>

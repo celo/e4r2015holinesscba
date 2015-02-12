@@ -1,25 +1,27 @@
 <h1>Cidades do <%=@state.name%></h1>
-<div class="table-responsive">
-<table class="table table-bordered table-condensed table-hover">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @cities.each do |admin_city| %>
-      <tr>
-        <td><%= admin_city.name %></td>
-        <td><%= link_to image_tag("page_edit.png", alt: "Editar"), edit_admin_state_city_path(admin_city.state_id,admin_city) %></td>
-        <td><%= link_to image_tag("page_delete.png", alt: "Excluir"), admin_state_city_path(admin_city.state_id,admin_city), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @cities.each do |admin_city| %>
+            <tr>
+              <td><%= admin_city.name %></td>
+              <td><%= link_to image_tag("page_edit.png", alt: "Editar"), edit_admin_state_city_path(admin_city.state_id,admin_city) %></td>
+              <td><%= link_to image_tag("page_delete.png", alt: "Excluir"), admin_state_city_path(admin_city.state_id,admin_city), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <%= link_to 'Nova Cidade', new_admin_state_city_path, class: "btn btn-lg btn-primary" %>
+  </div>
 </div>
-<br>
-
-<%= link_to 'Nova Cidade', new_admin_state_city_path, class: "btn btn-lg btn-primary" %>
-<br>

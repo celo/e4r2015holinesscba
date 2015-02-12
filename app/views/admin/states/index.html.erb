@@ -1,21 +1,26 @@
 <h1>Estados</h1>
-<div class="table-responsive">
-<table class="table table-bordered table-condensed table-hover">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th width="40"></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="table-responsive">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th width="40"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @states.each do |admin_state| %>
-      <tr>
-        <td><%= admin_state.name %></td>
-        <td><%= link_to image_tag("page_go.png", alt: "Cidades"), admin_state_cities_path(admin_state) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @states.each do |admin_state| %>
+            <tr>
+              <td><%= admin_state.name %></td>
+              <td><%= link_to image_tag("page_go.png", alt: "Cidades"), admin_state_cities_path(admin_state) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      </table>
+      </div>
+    </div>
+  </div>
 </div>
-<br>
