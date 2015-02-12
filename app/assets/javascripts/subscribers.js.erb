@@ -1,0 +1,8 @@
+$(document).on('change', '#subscriber_payment_plan_id', function() {
+     $.ajax({
+        url : "/subscribers/payment_plan_info",
+        data : "id=" + this.value, 
+        type: "GET"
+     }) 
+});
+

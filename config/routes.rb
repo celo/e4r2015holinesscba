@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- 
+
   devise_for :users
   root 'static_pages#home'
   get 'contact' => 'static_pages#contact'
@@ -16,6 +16,12 @@ Rails.application.routes.draw do
       get :autocomplete_city_name, :on => :collection
     end
   end
+  resources :subscribers, only: [:new, :create] do
+    get :autocomplete_city_name, :on => :collection
+  end
+  get 'subscribers/payment_plan_info'
+  get 'success' => 'subscribers#success'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
