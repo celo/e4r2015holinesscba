@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, path: "admin/users", :skip => [:registrations]
+  as :user do
+    get 'admin/users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'admin/users' => 'devise/registrations#update', :as => 'user_registration'
+  end
   root 'static_pages#home'
   get 'contact' => 'static_pages#contact'
   namespace :admin do
-    resources :users
+    resources :users, only: [:index, :destroy, :new, :create]
     resources :states do
       resources :cities
     end
