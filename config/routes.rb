@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   root 'static_pages#home'
   get 'contact' => 'static_pages#contact'
+  get 'print'   => 'static_pages#print'
   namespace :admin do
     resources :users, only: [:index, :destroy, :new, :create]
     resources :states do

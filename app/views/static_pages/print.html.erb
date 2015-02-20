@@ -1,0 +1,72 @@
+<style>
+	td {
+		font: 15px arial, sans-serif;
+	}
+</style>
+<table cellpadding="10" cellspacing="0" border="1" width="100%">
+	<tr>
+		<td>
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+						<td align="center">
+							<%= image_tag("holiness-logo-vertical-pb.png", alt: "logo", size:"150x112") %>
+						</td>
+				</tr>
+				<tr>
+					<td align="center" style="font: 20px arial, sans-serif;">
+						FORMUL&Aacute;RIO DE INSCRI&Ccedil;&Atilde;O<br/>
+						Encontro da 4&ordf; Regi&atilde;o 2015<br/>
+						Igreja Evang&eacute;lica Holiness de Cuiab&aacute;
+					</td>
+				</tr>
+			</table>
+			<br/>
+			<br/>
+			<table cellpadding="5" cellspacing="0" border="1" width="100%">
+				<tr>
+					<td colspan="3">Nome:</td>
+				</tr>
+				<tr>
+					<td width="33%">Data de Nascimento:</td>
+					<td colspan="2">Sexo: (&nbsp;&nbsp;&nbsp;) Masculino (&nbsp;&nbsp;&nbsp;) Feminino </td>
+				</tr>
+				<tr>
+					<td colspan="3">Endere&ccedil;o:</td>
+				</tr>
+				<tr>
+					<td>Bairro:</td>
+					<td width="33%">Cidade:</td>
+					<td>Estado:</td>
+				</tr>
+				<tr>
+					<td>CEP:</td>
+					<td>Telefone:</td>
+					<td>Celular:</td>
+				</tr>
+				<tr>
+					<td colspan="3">E-mail:</td>
+				</tr>
+				<tr>
+					<td colspan="3">Igreja:</td>
+				</tr>
+			</table>
+			<hr>
+			<table cellpadding="5" cellspacing="0" border="1" width="100%">
+				<tr>
+					<td>Plano de Pagamento:<br/>
+				    <% @payment_plans.each do |payment_plan| %>
+				    		(&nbsp;&nbsp;&nbsp;) <%= payment_plan.name %><br/>
+				    		<%= simple_format(payment_plan.info) %><br/><br/>
+				    <% end %>
+					</td>
+				</tr>
+			</table>
+			<hr>
+			<table cellpadding="5" cellspacing="0" border="1" width="100%">
+				<tr>
+					<td>Observa&ccedil;&otilde;es:<br/><br/><br/><br/><br/><br/></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

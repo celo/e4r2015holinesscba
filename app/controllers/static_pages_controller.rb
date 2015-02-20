@@ -4,4 +4,9 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  def print
+		@payment_plans = PaymentPlan.all.order(:name)
+		render :layout => false
+  end
 end
