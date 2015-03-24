@@ -2,8 +2,6 @@ class SubscribersController < ApplicationController
   before_action :find_churches, only: [:new]
   before_action :find_payment_plans, only: [:new]
 
-  autocomplete :city, :name, :extra_data => [:state_id], display_value: :city_state
-
   def new
     @subscriber = Subscriber.new
   end
@@ -41,7 +39,7 @@ class SubscribersController < ApplicationController
     end
     
     def subscriber_params
-      params.require(:subscriber).permit(:name, :birth_date, :gender, :address, :neighborhood, :city_name, :city_id, :cep, :phone, :cellphone, :email, :church_id, :payment_plan_id, :notes)
+      params.require(:subscriber).permit(:name, :tag_name, :birth_date, :gender, :phone, :cellphone, :email, :church_id, :payment_plan_id, :food_restriction, :food_restriction_notes, :family, :hosting_preference, :extra_notes)
     end
 
 end
