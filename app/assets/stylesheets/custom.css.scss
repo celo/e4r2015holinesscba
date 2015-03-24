@@ -202,7 +202,7 @@ aside {
 }
 
 /* forms */
-
+/*
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -250,5 +250,9 @@ input.radio_buttons {
 .collection_radio_buttons {
   float: left;
 }
-
-
+*/
+.help-block {
+  font-size: 0.9em;
+  font-style: italic;
+  color:#DC143C;
+}

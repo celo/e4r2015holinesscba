@@ -21,6 +21,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'rails4-autocomplete'
 gem 'meiomask-rails'
+#gem 'devise-bootstrap-views'
 
 group :development, :test do
   gem 'thin'

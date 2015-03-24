@@ -1,4 +1,4 @@
-<div class="center jumbotron">
+<div class="center">
   <h1><%= link_to image_tag("holiness-logo-vertical.png", alt: "logo", size: "200x149"),
             'http://www.holinesscba.com.br' %></h1>
 
@@ -10,17 +10,13 @@
   </h2>
 	<div class="left row">
 	  <div class="col-md-6 col-md-offset-3">
-	    <%= simple_form_for [@subscriber] do |f| %>
+	    <%= simple_form_for([@subscriber], html: { class: 'form-horizontal' }) do |f| %>
 	      <%= render 'shared/error_messages', object: f.object %>
 
 				<%= f.input :name, label: "Nome" %>
+				<%= f.input :tag_name, label: "Nome Crachá" %>
 				<%= f.input :birth_date, as: :string, label: "Data de Nascimento", input_html: { alt: "date", value: @subscriber.new_record? ? "" : @subscriber.birth_date.strftime("%d/%m/%Y") } %>
 				<%= f.input :gender, as: :radio_buttons, collection: [['Masculino',true],['Feminino',false]], checked: @subscriber.new_record? ? "" : @subscriber.gender, label: "Sexo" %>
-				<%= f.input :address, label: "Endereço" %>
-				<%= f.input :neighborhood, label: "Bairro" %>
-	      <%= f.input :city_name, url: autocomplete_city_name_admin_subscribers_path, as: :autocomplete, id_element: '#subscriber_city_id' , label: "Cidade" %>
-	      <%= f.input :city_id, as: :hidden %>
-				<%= f.input :cep, label: "CEP", input_html: { alt: "cep"} %>
 				<%= f.input :phone, as: :string, label: "Telefone", input_html: { alt: "phone" } %>
 				<%= f.input :cellphone, as: :string, label: "Celular", input_html: { alt: "phone" } %>
 				<%= f.input :email, label: "E-mail" %>
@@ -29,9 +25,17 @@
 				<div class="well well-small" id="payment_plan_info">
 					<p>Escolha o Plano de pagamento desejado</p>
 				</div>
-				<%= f.input :notes, label: "Observações", input_html: { rows: 5 } %>
+				<%= f.input :food_restriction, as: :radio_buttons, collection: [['Não',false],['Sim',true]], checked: @subscriber.new_record? ? "" : @subscriber.food_restriction, label: "Restrições Alimentares" %>
+				<%= f.input :food_restriction_notes, label: "Quais?" %>
+				<%= f.input :family, label: "Conjuge/Familiares", hint: "* Por favor, liste os nomes dos familiares que estarão no Encontro." %>
+				<%= f.input :hosting_preference, as: :radio_buttons, collection: [['Local do Encontro','L'],['Hotel ou Pousada','H']], checked: @subscriber.new_record? ? "" : @subscriber.hosting_preference, label: "Preferência de Hospedagem", hint: '* Hospedagem em Hotel ou Pousada será por conta do participante.' %>
+				<%= f.input :extra_notes, label: "Observações Extras" %>
+				<div class="well well-small">
+					<p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Sua inscrição será confirmada posteriormente via e-mail.</p>
+					<p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Neste, serão solicitadas as informações sobre transporte, dia e horário de chegada.</p>
+				</div>
 
-	      <%= f.submit "Salvar", class: "btn btn-primary" %>
+	      <%= f.submit "Enviar", class: "btn btn-primary" %>
 	    <% end %>
 	  </div>
 	</div>
