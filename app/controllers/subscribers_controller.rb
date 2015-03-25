@@ -1,6 +1,6 @@
 class SubscribersController < ApplicationController
-  before_action :find_churches, only: [:new]
-  before_action :find_payment_plans, only: [:new]
+  before_action :find_churches, only: [:new, :create]
+  before_action :find_payment_plans, only: [:new, :create]
 
   def new
     @subscriber = Subscriber.new
