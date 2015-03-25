@@ -8,8 +8,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+# Users
+User.create(email: 'marcelomogami@gmail.com', password: '123mudar', password_confirmation: '123mudar')
 
-
+# States and Cities
 e = State.create(:abbr => 'AC', :name => "Acre")
 e.cities.create(:name => "Acrelândia")
 e.cities.create(:name => "Assis Brasil")
