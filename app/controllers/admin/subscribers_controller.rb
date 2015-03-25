@@ -3,8 +3,7 @@ class Admin::SubscribersController < Admin::ApplicationController
   before_action :find_churches, only: [:new, :edit]
   before_action :find_payment_plans, only: [:new, :edit]
 
-  autocomplete :city, :name, :extra_data => [:state_id], display_value: :city_state
-
+  
   def index
     @subscribers = Subscriber.all.order(:name)
   end
@@ -58,7 +57,7 @@ class Admin::SubscribersController < Admin::ApplicationController
     end
     
     def subscriber_params
-      params.require(:subscriber).permit(:name, :birth_date, :gender, :address, :neighborhood, :city_name, :city_id, :cep, :phone, :cellphone, :email, :church_id, :payment_plan_id, :notes)
+      params.require(:subscriber).permit(:name, :tag_name, :birth_date, :gender, :phone, :cellphone, :email, :church_id, :payment_plan_id, :food_restriction, :food_restriction_notes, :family, :hosting_preference, :extra_notes)
     end
 
 end

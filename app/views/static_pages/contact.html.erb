@@ -1,5 +1,14 @@
 <% provide(:title, 'Contato') %>
 <h1>Contato</h1>
-<p>
-  Página de Contato
-</p>
+	<div class="left row">
+	  <div class="col-md-6 col-md-offset-3">
+	    <%= simple_form_for([@subscriber], html: { class: 'form-horizontal' }) do |f| %>
+	      <%= render 'shared/error_messages', object: f.object %>
+
+				<%= f.input :name, label: "Nome" %>
+				<%= f.input :email, label: "E-mail" %>
+				<%= f.input :message, label: "Mensagem" %>
+	      <%= f.submit "Enviar", class: "btn btn-primary" %>
+	    <% end %>
+	  </div>
+	</div>

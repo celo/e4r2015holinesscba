@@ -9,7 +9,7 @@ class SubscribersController < ApplicationController
   def create
     @subscriber = Subscriber.new(subscriber_params)
     if @subscriber.save
-      flash[:info] = "Subscriber created"
+      flash[:info] = "Inscrição efetuada com sucesso!"
       redirect_to success_url
     else
       render 'new'

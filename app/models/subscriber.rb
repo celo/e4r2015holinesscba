@@ -8,7 +8,7 @@ class Subscriber < ActiveRecord::Base
   validates :gender, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX }
+                    format: { with: VALID_EMAIL_REGEX }, allow_blank: true
   validates :church_id, presence: true
   validates :payment_plan_id, presence: true
   validates :food_restriction, presence: true
