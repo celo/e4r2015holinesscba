@@ -21,7 +21,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'rails4-autocomplete'
 gem 'meiomask-rails'
-#gem 'devise-bootstrap-views'
+gem 'devise-bootstrap-views'
 
 group :development, :test do
   gem 'thin'
@@ -29,6 +29,7 @@ group :development, :test do
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
+  gem 'quiet_assets'
 end
 
 group :test do
