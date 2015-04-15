@@ -5,6 +5,7 @@
 			<table class="table table-condensed table-hover table-bordered">
 			  <thead>
 			    <tr>
+			      <th></th>
 			      <th>Nome</th>
 			      <th>Idade</th>
 			      <th>Email</th>
@@ -14,8 +15,9 @@
 			  </thead>
 
 			  <tbody>
-			    <% @subscribers.each do |admin_subscriber| %>
+			    <% @subscribers.each.with_index(1) do |admin_subscriber, index| %>
 			      <tr>
+			      	<td><%= index %></td>
 			        <td><%= admin_subscriber.name %></td>
 			        <td><%= admin_subscriber.age %></td>
 			        <td><%= admin_subscriber.email %></td>
