@@ -1,4 +1,5 @@
 class Admin::SubscribersController < Admin::ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :find_subscriber, only: [:show, :edit, :update, :destroy]
   before_action :find_churches, only: [:new, :edit]
   before_action :find_payment_plans, only: [:new, :edit]
@@ -44,7 +45,7 @@ class Admin::SubscribersController < Admin::ApplicationController
   end
 
   def list
-    @subscribers = Subscriber.all.order(:name)
+    @subscribers = Subscriber.order(sort_column + " " + sort_direction)
   end
 
 
@@ -61,6 +62,14 @@ class Admin::SubscribersController < Admin::ApplicationController
       @payment_plans = PaymentPlan.all.order(:name)
     end
     
+    def sort_column
+      Subscriber.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     def subscriber_params
       params.require(:subscriber).permit(:name, :tag_name, :birth_date, :gender, :phone, :cellphone, :email, :church_id, :payment_plan_id, :food_restriction, :food_restriction_notes, :family, :hosting_preference, :extra_notes)
     end

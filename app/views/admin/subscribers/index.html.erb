@@ -6,6 +6,8 @@
 			  <thead>
 			    <tr>
 			      <th>Nome</th>
+			      <th>Idade</th>
+			      <th>Igreja</th>
 			      <th colspan="2"></th>
 			    </tr>
 			  </thead>
@@ -14,6 +16,8 @@
 			    <% @subscribers.each do |admin_subscriber| %>
 			      <tr>
 			        <td><%= admin_subscriber.name %></td>
+			        <td><%= admin_subscriber.age %></td>
+			        <td><%= admin_subscriber.church.abbr %></td>
 			        <td><%= link_to image_tag("page_edit.png", alt: "Editar"), edit_admin_subscriber_path(admin_subscriber) %></td>
 			        <td><%= link_to image_tag("page_delete.png", alt: "Excluir"), admin_subscriber_path(admin_subscriber), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
 			      </tr>
