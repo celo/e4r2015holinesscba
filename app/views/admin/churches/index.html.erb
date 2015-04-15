@@ -6,6 +6,7 @@
 			  <thead>
 			    <tr>
 			      <th>Nome</th>
+			      <th>Sigla</th>
 			      <th>Cidade</th>
 			      <th>Estado</th>
 			      <th colspan="2"></th>
@@ -16,6 +17,7 @@
 			    <% @churches.each do |admin_church| %>
 			      <tr>
 			        <td><%= admin_church.name %></td>
+			        <td><%= admin_church.abbr %></td>
 			        <td><%= admin_church.city.name if !admin_church.city.nil? %></td>
 			        <td><%= admin_church.city.state.abbr if !admin_church.city.nil? %></td>
 			        <td><%= link_to image_tag("page_edit.png", alt: "Editar"), edit_admin_church_path(admin_church) %></td>

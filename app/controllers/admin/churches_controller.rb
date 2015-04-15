@@ -56,7 +56,7 @@ class Admin::ChurchesController < Admin::ApplicationController
     end
 
     def church_params
-      params.require(:church).permit(:name, :city_name, :city_id)
+      params.require(:church).permit(:name, :abbr, :city_name, :city_id)
     end
 
 end
