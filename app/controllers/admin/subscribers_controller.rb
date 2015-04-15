@@ -43,6 +43,11 @@ class Admin::SubscribersController < Admin::ApplicationController
     redirect_to admin_subscribers_url
   end
 
+  def list
+    @subscribers = Subscriber.all.order(:name)
+  end
+
+
   private
     def find_subscriber
       @subscriber = Subscriber.find(params[:id])

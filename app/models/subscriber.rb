@@ -14,5 +14,9 @@ class Subscriber < ActiveRecord::Base
   validates :food_restriction, presence: true
   validates :hosting_preference, presence: true
 
+def age
+  now = Time.now.utc
+  now.year - birth_date.year - (birth_date.to_time.change(:year => now.year) > now ? 1 : 0)
+end
 
 end

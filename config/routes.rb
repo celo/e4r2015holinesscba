@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     resources :payment_plans
     resources :subscribers do
       get :autocomplete_city_name, :on => :collection
+      collection do
+        get :list
+      end
     end
   end
   resources :subscribers, only: [:new, :create] do

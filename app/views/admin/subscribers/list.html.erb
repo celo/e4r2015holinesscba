@@ -1,0 +1,30 @@
+<h1>Inscrições</h1>
+<div class="row">
+	<div >
+		<div class="table-responsive">
+			<table class="table table-condensed table-hover table-bordered">
+			  <thead>
+			    <tr>
+			      <th>Nome</th>
+			      <th>Idade</th>
+			      <th>Email</th>
+			      <th>Igreja</th>
+			      <th>Data Inscrição</th>
+			    </tr>
+			  </thead>
+
+			  <tbody>
+			    <% @subscribers.each do |admin_subscriber| %>
+			      <tr>
+			        <td><%= admin_subscriber.name %></td>
+			        <td><%= admin_subscriber.age %></td>
+			        <td><%= admin_subscriber.email %></td>
+			        <td><%= admin_subscriber.church.name %></td>
+			        <td><%= admin_subscriber.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
