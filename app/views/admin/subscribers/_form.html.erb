@@ -16,7 +16,7 @@
 			<%= f.input :food_restriction_notes, label: "Quais?" %>
 			<%= f.input :family, label: "Cônjuge/Familiares" %>
 			<%= f.input :hosting_preference, as: :radio_buttons, collection: [['Local do Encontro','L'],['Hotel ou Pousada','H']], label: "Preferência de Hospedagem", hint: '* Hospedagem em Hotel ou Pousada será por conta do participante.' %>
-			<%= f.input :arrival_date, as: :string, label: "Data de Chegada", input_html: { alt: "date", value: @subscriber.new_record? ? "" : @subscriber.arrival_date.strftime("%d/%m/%Y") } %>
+			<%= f.input :arrival_date, as: :string, label: "Data de Chegada", input_html: { alt: "date", value: @subscriber.new_record? || @subscriber.arrival_date.nil? ? "" : @subscriber.arrival_date.strftime("%d/%m/%Y") } %>
 			<%= f.input :arrival_option, as: :radio_buttons, collection: [['Ônibus Igreja','P'],['Ônibus Viagem','V'],['Avião','A'],['Carro','C']], checked: @subscriber.new_record? ? "" : @subscriber.arrival_option, label: "Opção de Transporte" %>
 			<%= f.input :arrival_notes, label: "Observações da Chegada" %>
 			<%= f.input :extra_notes, label: "Observações Extras" %>
