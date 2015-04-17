@@ -10,6 +10,7 @@
 				  <th><%= sortable "birth_date", "Idade" %></th>
 				  <th><%= sortable "email", "Email" %></th>
 				  <th><%= sortable "church_id", "Igreja" %></th>
+				  <th><%= sortable "hosting_preference", "Hospedagem" %></th>
 				  <th><%= sortable "created_at", "Data Inscrição" %></th>
 			    </tr>
 			  </thead>
@@ -22,6 +23,7 @@
 			        <td><%= admin_subscriber.age %></td>
 			        <td><%= admin_subscriber.email %></td>
 			        <td><%= admin_subscriber.church.abbr %></td>
+			        <td><%= admin_subscriber.hosting_preference %></td>
 			        <td><%= admin_subscriber.created_at.strftime("%d/%m/%Y %H:%M") %></td>
 			      </tr>
 			    <% end %>
