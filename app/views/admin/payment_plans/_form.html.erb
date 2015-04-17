@@ -4,6 +4,7 @@
       <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.input :name, label: "Nome", class: 'form-control' %>
+      <%= f.input :abbr, label: "Sigla", class: 'form-control' %>
       <%= f.input :info, label: "Informações" %>
 
       <%= f.submit "Salvar", class: "btn btn-primary" %>

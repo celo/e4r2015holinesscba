@@ -43,7 +43,7 @@ class Admin::PaymentPlansController < Admin::ApplicationController
     end
     
     def payment_plan_params
-      params.require(:payment_plan).permit(:name, :info)
+      params.require(:payment_plan).permit(:name, :abbr, :info)
     end
 
 end

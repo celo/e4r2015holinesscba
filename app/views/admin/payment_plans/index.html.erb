@@ -6,6 +6,7 @@
 			  <thead>
 			    <tr>
 			      <th>Nome</th>
+			      <th>Sigla</th>
 			      <th>Info</th>
 			      <th colspan="2"></th>
 			    </tr>
@@ -15,6 +16,7 @@
 			    <% @payment_plans.each do |admin_payment_plan| %>
 			      <tr>
 			        <td><%= admin_payment_plan.name %></td>
+			        <td><%= admin_payment_plan.abbr %></td>
 			        <td><%= simple_format(admin_payment_plan.info) %></td>
 			        <td><%= link_to image_tag("page_edit.png", alt: "Editar"), edit_admin_payment_plan_path(admin_payment_plan) %></td>
 			        <td><%= link_to image_tag("page_delete.png", alt: "Excluir"), admin_payment_plan_path(admin_payment_plan), method: :delete, data: { confirm: 'Tem certeza?' } %></td>
