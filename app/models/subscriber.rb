@@ -14,9 +14,17 @@ class Subscriber < ActiveRecord::Base
   validates :food_restriction, presence: true
   validates :hosting_preference, presence: true
 
-def age
-  now = Time.now.utc
-  now.year - birth_date.year - (birth_date.to_time.change(:year => now.year) > now ? 1 : 0)
-end
+  def age
+    now = Time.now.utc
+    now.year - birth_date.year - (birth_date.to_time.change(:year => now.year) > now ? 1 : 0)
+  end
 
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |subscriber|
+        csv << subscriber.attributes.values_at(*column_names)
+      end
+    end
+  end
 end
