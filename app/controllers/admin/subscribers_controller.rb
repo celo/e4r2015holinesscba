@@ -48,7 +48,9 @@ class Admin::SubscribersController < Admin::ApplicationController
     @subscribers = Subscriber.order(sort_column + " " + sort_direction)
     respond_to do |format|
       format.html
-      format.xls
+      format.xls {
+            response.headers['Content-Disposition'] = "attachment; filename=\"list-#{Time.zone.now.strftime("%Y-%m-%d-%H-%M-%S")}.xls\""
+        }
     end
   end
 
