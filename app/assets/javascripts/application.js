@@ -16,10 +16,21 @@
 //= require bootstrap
 //= require turbolinks
 //= require autocomplete-rails
-//= require meiomask
+//= require maskedinput
 //= require_tree .
 
 // call setMask function on the document.ready event
 jQuery(function($) {
-  $('input[type="text"]').setMask();
+	$('[alt="date"]').mask("99/99/9999");
+	$('[alt="newphone"]').focusout(function(){
+    var phone, element;
+    element = $(this);
+    element.unmask();
+    phone = element.val().replace(/\D/g, '');
+    if(phone.length > 10) {
+        element.mask("(99) 99999-999?9");
+    } else {
+        element.mask("(99) 9999-9999?9");
+    }
+	}).trigger('focusout');
 });

@@ -20,7 +20,8 @@ gem 'sdoc',                 '0.4.0', group: :doc
 gem 'devise'
 gem 'simple_form'
 gem 'rails4-autocomplete'
-gem 'meiomask-rails'
+#gem 'meiomask-rails'
+gem 'maskedinput-rails'
 gem 'devise-bootstrap-views'
 
 group :development, :test do
