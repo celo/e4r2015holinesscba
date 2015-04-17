@@ -48,7 +48,7 @@ class Admin::SubscribersController < Admin::ApplicationController
     @subscribers = Subscriber.order(sort_column + " " + sort_direction)
     respond_to do |format|
       format.html
-      format.csv { send_data @subscribers.to_csv }
+      format.xls
     end
   end
 
