@@ -1,21 +1,30 @@
 <h1>Inscrições</h1>
 <div class="row">
 	<div>
-	<p>
-	  Download:
-	  <%= link_to "XLS", list_admin_subscribers_path(format: "xls") %>
-	</p>
+		<div class="well well-sm">
+			<%= search_form_for [:admin,@search], url: list_admin_subscribers_path, :html=> { class: 'form-inline' }, builder: SimpleForm::FormBuilder do |f| %>
+			  	<%= f.input :name_cont, label: "Nome"  %>
+			    <%= f.input :church_id_eq, collection: @churches, label_method: :abbr, label: "Igreja" %>
+			    <%= f.input :payment_plan_id_eq, collection: @payment_plans, label_method: :abbr, label: "Pagamento" %>
+			    <%= f.input :hosting_preference_eq, collection: [['Local','L'],['Hotel','H']], label: "Hospedagem" %>
+			  <%= f.submit "Busca", class: "btn" %>
+			<% end %>
+		</div>
+		<p>
+		  Download:
+		  <%= link_to "XLS", list_admin_subscribers_path(format: "xls") %>
+		</p>
 		<div class="table-responsive">
 			<table class="table table-condensed table-hover table-bordered table-striped">
 			  <thead>
 			    <tr>
 			      <th></th>
-				  <th><%= sortable "name", "Nome" %></th>
-				  <th><%= sortable "birth_date", "Idade" %></th>
-				  <th><%= sortable "email", "Email" %></th>
-				  <th><%= sortable "church_id", "Igreja" %></th>
-				  <th><%= sortable "hosting_preference", "Hospedagem" %></th>
-				  <th><%= sortable "created_at", "Data Inscrição" %></th>
+					  <th><%= sort_link(@search, :name, 'Nome', default_order: :asc) %></th>
+					  <th><%= sort_link(@search, :birth_date, 'Idade', default_order: :asc) %></th>
+					  <th><%= sort_link(@search, :email, 'Email', default_order: :asc) %></th>
+					  <th><%= sort_link(@search, :church_abbr, 'Igreja', default_order: :asc) %></th>
+					  <th><%= sort_link(@search, :hosting_preference, 'Hospedagem', default_order: :asc) %></th>
+					  <th><%= sort_link(@search, :created_at, 'Data Inscrição', default_order: :asc) %></th>
 			    </tr>
 			  </thead>
 

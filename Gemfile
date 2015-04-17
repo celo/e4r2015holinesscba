@@ -23,6 +23,7 @@ gem 'rails4-autocomplete'
 #gem 'meiomask-rails'
 gem 'maskedinput-rails'
 gem 'devise-bootstrap-views'
+gem 'ransack'
 
 group :development, :test do
   gem 'thin'
