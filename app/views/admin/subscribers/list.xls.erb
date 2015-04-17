@@ -23,7 +23,7 @@
         <Cell><Data ss:Type="String"><%= subscriber.email %></Data></Cell>
         <Cell><Data ss:Type="String"><%= subscriber.church.abbr %></Data></Cell>
         <Cell><Data ss:Type="String"><%= subscriber.hosting_preference %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= subscriber.created_at.strftime("%d/%m/%Y %H:%M") %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= subscriber.created_at.strftime("%Y-%m-%d %H:%M:%S") %></Data></Cell>
       </Row>
     <% end %>
     </Table>
