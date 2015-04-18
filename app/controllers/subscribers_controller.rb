@@ -9,6 +9,7 @@ class SubscribersController < ApplicationController
   def create
     @subscriber = Subscriber.new(subscriber_params)
     if @subscriber.save
+      @subscriber.send_new_subscriber_notification_email
       flash[:info] = "Inscrição efetuada com sucesso!"
       redirect_to success_url
     else

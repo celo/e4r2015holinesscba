@@ -1,0 +1,11 @@
+Oi Drika.
+
+Mais um inscrito para o Encontro!
+Weeee!
+
+Nome: <%= @subscriber.name.mb_chars.upcase %>
+E-mail: <%= @subscriber.email.downcase if @subscriber.email? %>
+Igreja: <%= @subscriber.church.abbr %>
+
+Link para acessar a inscrição:
+<%= edit_admin_subscriber_path(@subscriber) %>

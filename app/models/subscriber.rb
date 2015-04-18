@@ -27,4 +27,9 @@ class Subscriber < ActiveRecord::Base
       end
     end
   end
+
+  def send_new_subscriber_notification_email
+    SubscriberMailer.new_subscriber_notification(self).deliver_now
+  end
+
 end
