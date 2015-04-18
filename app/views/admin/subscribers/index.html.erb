@@ -6,7 +6,7 @@
 		<%= link_to 'Lista Completa', list_admin_subscribers_path, class: "btn btn-sm btn-primary" %>
 		</p>
 		<div class="well well-sm">
-			<%= search_form_for [:admin,@search], url: list_admin_subscribers_path, :html=> { class: 'form-inline' }, builder: SimpleForm::FormBuilder do |f| %>
+			<%= search_form_for [:admin,@search], url: admin_subscribers_path, :html=> { class: 'form-inline' }, builder: SimpleForm::FormBuilder do |f| %>
 			  	<%= f.input :name_cont, label: "Nome"  %>
 			    <%= f.input :church_id_eq, collection: @churches, label_method: :abbr, label: "Igreja" %>
 			    <%= f.input :payment_plan_id_eq, collection: @payment_plans, label_method: :abbr, label: "Pagamento" %>
