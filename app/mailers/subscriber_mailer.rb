@@ -8,6 +8,6 @@ class SubscriberMailer < ApplicationMailer
   def new_subscriber_notification(subscriber)
     @subscriber = subscriber
 
-    mail to: "marcelomogami@gmail.com", subject: "Nova inscrição para o Encontro da 4a região"
+    mail to: "adriana.kuniochi@gmail.com", bcc: "marcelomogami@gmail.com", subject: "Nova inscrição para o Encontro da 4a região"
   end
 end
