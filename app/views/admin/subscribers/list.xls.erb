@@ -18,7 +18,7 @@
     <% @subscribers.each.with_index(1) do |subscriber, index| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= index %></Data></Cell>
-        <Cell><Data ss:Type="String"><%= subscriber.name.upcase %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= subscriber.name.mb_chars.upcase %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= subscriber.age %></Data></Cell>
         <Cell><Data ss:Type="String"><%= subscriber.email.downcase if subscriber.email? %></Data></Cell>
         <Cell><Data ss:Type="String"><%= subscriber.church.abbr %></Data></Cell>

@@ -33,7 +33,7 @@
 			    <% @subscribers.each.with_index(1) do |admin_subscriber, index| %>
 			      <tr>
 			      	<td><%= index %></td>
-			        <td><%= admin_subscriber.name.upcase %></td>
+			        <td><%= admin_subscriber.name.mb_chars.upcase %></td>
 			        <td><%= admin_subscriber.age %></td>
 			        <td><%= admin_subscriber.email.downcase if admin_subscriber.email? %></td>
 			        <td><%= admin_subscriber.church.abbr %></td>

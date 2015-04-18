@@ -28,7 +28,7 @@
 			  <tbody>
 			    <% @subscribers.each do |admin_subscriber| %>
 			      <tr>
-			        <td><%= admin_subscriber.name.upcase %></td>
+			        <td><%= admin_subscriber.name.mb_chars.upcase %></td>
 			        <td width="30"><%= admin_subscriber.age %></td>
 			        <td width="150"><%= admin_subscriber.church.abbr %></td>
 			        <td width="20"><%= link_to image_tag("page_edit.png", alt: "Editar"), edit_admin_subscriber_path(admin_subscriber) %></td>
