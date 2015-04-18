@@ -1,8 +1,7 @@
 class Admin::SubscribersController < Admin::ApplicationController
-  helper_method :sort_column, :sort_direction
   before_action :find_subscriber, only: [:show, :edit, :update, :destroy]
-  before_action :find_churches, only: [:new, :edit, :list]
-  before_action :find_payment_plans, only: [:new, :edit, :list]
+  before_action :find_churches, only: [:new, :create, :edit, :update, :list]
+  before_action :find_payment_plans, only: [:new, :create, :edit, :update, :list]
 
   
   def index
