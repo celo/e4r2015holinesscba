@@ -33,9 +33,9 @@
 			    <% @subscribers.each.with_index(1) do |admin_subscriber, index| %>
 			      <tr>
 			      	<td><%= index %></td>
-			        <td><%= admin_subscriber.name %></td>
+			        <td><%= admin_subscriber.name.upcase %></td>
 			        <td><%= admin_subscriber.age %></td>
-			        <td><%= admin_subscriber.email %></td>
+			        <td><%= admin_subscriber.email.downcase if admin_subscriber.email? %></td>
 			        <td><%= admin_subscriber.church.abbr %></td>
 			        <td><%= admin_subscriber.hosting_preference %></td>
 			        <td><%= admin_subscriber.created_at.strftime("%d/%m/%Y %H:%M") %></td>

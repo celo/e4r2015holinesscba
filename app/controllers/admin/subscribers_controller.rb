@@ -1,11 +1,12 @@
 class Admin::SubscribersController < Admin::ApplicationController
   before_action :find_subscriber, only: [:show, :edit, :update, :destroy]
-  before_action :find_churches, only: [:new, :create, :edit, :update, :list]
-  before_action :find_payment_plans, only: [:new, :create, :edit, :update, :list]
+  before_action :find_churches, only: [:index, :new, :create, :edit, :update, :list]
+  before_action :find_payment_plans, only: [:index, :new, :create, :edit, :update, :list]
 
   
   def index
-    @subscribers = Subscriber.all.order(:name)
+    @search = Subscriber.ransack(params[:q])
+    @subscribers = @search.result
   end
 
   def show
