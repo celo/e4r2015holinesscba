@@ -21,7 +21,7 @@
 				<%= f.input :email, label: "E-mail" %>
 				<%= f.input :church_id, collection: @churches, label: "Igreja" %>
 				<%= f.input :payment_plan_id, collection: @payment_plans, label: "Plano de Pagamento" %>
-				<div class="well well-small" id="payment_plan_info">
+				<div class="well well-sm" id="payment_plan_info">
 					<p>Escolha o Plano de pagamento desejado</p>
 				</div>
 				<%= f.input :food_restriction, as: :radio_buttons, collection: [['Não','N'],['Sim','S']], label: "Restrições Alimentares" %>
@@ -29,9 +29,9 @@
 				<%= f.input :family, label: "Cônjuge/Familiares", hint: "* Por favor, liste os nomes dos familiares que estarão no Encontro. Não vale como inscrição." %>
 				<%= f.input :hosting_preference, as: :radio_buttons, collection: [['Local do Encontro','L'],['Hotel ou Pousada','H']], label: "Preferência de Hospedagem", hint: '* Hospedagem em Hotel ou Pousada será por conta do participante.' %>
 				<%= f.input :extra_notes, label: "Observações Extras" %>
-				<div class="well well-small">
-					<p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Sua inscrição será confirmada posteriormente via e-mail.</p>
-					<p><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Neste serão solicitadas as informações sobre transporte, dia e horário de chegada.</p>
+				<div class="well well-sm">
+					<p>Sua inscrição será confirmada posteriormente via e-mail.</p>
+					<p>Neste serão solicitadas as informações sobre transporte, dia e horário de chegada.</p>
 				</div>
 
 	      <%= f.submit "Enviar", class: "btn btn-primary" %>
