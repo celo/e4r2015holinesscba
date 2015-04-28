@@ -6,7 +6,8 @@
 			  	<%= f.input :name_cont, label: "Nome"  %>
 			    <%= f.input :church_id_eq, collection: @churches, label_method: :abbr, label: "Igreja" %>
 			    <%= f.input :payment_plan_id_eq, collection: @payment_plans, label_method: :abbr, label: "Pagamento" %>
-			    <%= f.input :hosting_preference_eq, collection: [['Local','L'],['Hotel','H']], label: "Hospedagem" %>
+					<%= f.input :hosting_preference_eq, collection: [['Local','L'],['Hotel','H']], label: "Hospedagem" %>
+					<%= f.input :gender_eq, collection: [['F','F'],['M','M']], label: "Sexo" %>
 			  <%= f.submit "Filtrar", class: "btn" %>
 			<% end %>
 		</div>
