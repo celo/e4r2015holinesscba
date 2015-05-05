@@ -19,6 +19,14 @@ class Subscriber < ActiveRecord::Base
     now.year - birth_date.year - (birth_date.to_time.change(:year => now.year) > now ? 1 : 0)
   end
 
+  def birth_month
+    birth_date.month
+  end
+
+  def birth_day
+    birth_date.day
+  end
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       csv << column_names
