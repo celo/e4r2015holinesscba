@@ -74,6 +74,17 @@ class Admin::SubscribersController < Admin::ApplicationController
         }
     end
   end
+
+  def list4
+    @subscribers = Subscriber.all.order(:church_id, :name)
+    respond_to do |format|
+      format.html
+      format.xls {
+            response.headers['Content-Disposition'] = "attachment; filename=\"list3-#{Time.zone.now.strftime("%Y-%m-%d-%H-%M-%S")}.xls\""
+        }
+    end
+  end
+
   private
     def find_subscriber
       @subscriber = Subscriber.find(params[:id])

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
         get :list
         get :list2
         get :list3
+        get :list4
       end
     end
   end
