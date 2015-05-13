@@ -56,7 +56,7 @@ class Admin::SubscribersController < Admin::ApplicationController
   end
 
   def list2
-    @subscribers = Subscriber.where(food_restriction: 'S').order(:name)
+    @subscribers = Subscriber.all.order(:name)
     respond_to do |format|
       format.html
       format.xls {
