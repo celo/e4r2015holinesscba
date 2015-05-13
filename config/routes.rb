@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       get :autocomplete_city_name, :on => :collection
       collection do
         get :list
+        get :list2
+        get :list3
       end
     end
   end

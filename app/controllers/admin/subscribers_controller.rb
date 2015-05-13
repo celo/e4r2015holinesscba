@@ -3,7 +3,7 @@ class Admin::SubscribersController < Admin::ApplicationController
   before_action :find_churches, only: [:index, :new, :create, :edit, :update, :list]
   before_action :find_payment_plans, only: [:index, :new, :create, :edit, :update, :list]
 
-  
+
   def index
     @search = Subscriber.ransack(params[:q])
     @subscribers = @search.result
@@ -55,7 +55,25 @@ class Admin::SubscribersController < Admin::ApplicationController
     end
   end
 
+  def list2
+    @subscribers = Subscriber.where(food_restriction: 'S').order(:name)
+    respond_to do |format|
+      format.html
+      format.xls {
+            response.headers['Content-Disposition'] = "attachment; filename=\"list2-#{Time.zone.now.strftime("%Y-%m-%d-%H-%M-%S")}.xls\""
+        }
+    end
+  end
 
+  def list3
+    @subscribers = Subscriber.all.order(:church_id, :name)
+    respond_to do |format|
+      format.html
+      format.xls {
+            response.headers['Content-Disposition'] = "attachment; filename=\"list3-#{Time.zone.now.strftime("%Y-%m-%d-%H-%M-%S")}.xls\""
+        }
+    end
+  end
   private
     def find_subscriber
       @subscriber = Subscriber.find(params[:id])
@@ -68,7 +86,7 @@ class Admin::SubscribersController < Admin::ApplicationController
     def find_payment_plans
       @payment_plans = PaymentPlan.all.order(:name)
     end
-    
+
     def subscriber_params
       params.require(:subscriber).permit(:name, :tag_name, :birth_date, :gender, :phone, :cellphone, :email, :church_id, :payment_plan_id, :food_restriction, :food_restriction_notes, :family, :hosting_preference, :extra_notes)
     end
