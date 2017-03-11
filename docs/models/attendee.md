@@ -1,4 +1,5 @@
 ## Model Schema
+* event:references
 * name:string
 * tag_name:string
 * birth_date:date
@@ -16,7 +17,7 @@
 * food_restriction_notes:string
 * family:text
 * accomodation:references
-* arrival_date:date
+* arrival_date:datetime
 * arrival_option:string
 * arrival_notes:text
 * extra_notes:text
@@ -56,11 +57,11 @@ user.prefer_not_to_disclose? # => true
 user.gender                  # => "prefer_not_to_disclose"
 ~~~~
 
-# Family
+## Family
 Need to think smarter way to store the family members who will attend the event.
 
-# Food restrictions
+## Food restrictions
 Need to think smarter way to store the food restrictions.
 
-# Accomodation (formerly Hosting Preferences)
+## Accomodation (formerly Hosting Preferences)
 Converted in model.
