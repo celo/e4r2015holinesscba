@@ -65,3 +65,10 @@ Need to think smarter way to store the food restrictions.
 
 ## Accomodation (formerly Hosting Preferences)
 Converted in model.
+
+## Multi step form (wizard) 
+Planning to make a multi step form to create attendees. 
+
+Links for reference:
+* https://medium.com/@nicolasblanco/developing-a-wizard-or-multi-steps-forms-in-rails-d2f3b7c692ce
+* https://github.com/nerdcave/rails-multistep-form
